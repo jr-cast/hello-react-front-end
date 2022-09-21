@@ -4,16 +4,18 @@ import {
   Routes,
   Route,
 } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import Greeting from './Greeting';
+import store from '../redux/configureStore';
 
 const App = () => (
-
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Greeting />} />
-    </Routes>
-  </BrowserRouter>
-
+  <Provider store={store}>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Greeting />} />
+      </Routes>
+    </BrowserRouter>
+  </Provider>
 );
 
 export default App;
