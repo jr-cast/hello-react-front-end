@@ -7,15 +7,8 @@ const Greeting = () => {
   const dispatch = useDispatch();
   const msg = useSelector((state) => state.greeting);
 
-  const config = {
-    headers: {
-      'Access-Control-Allow-Origin': 'http://localhost:3001',
-      'Content-Type': 'application/json',
-    },
-  };
-
   async function fetchData() {
-    await axios.get('http://localhost:3000/api/message', config).then((res) => {
+    await axios.get('http://localhost:3000/api/message').then((res) => {
       dispatch(fetchMessageSuccess(res.data.message));
     });
   }
@@ -25,7 +18,7 @@ const Greeting = () => {
   }, []);
 
   return (
-    <code>{msg}</code>
+    <h1>{msg}</h1>
   );
 };
 
